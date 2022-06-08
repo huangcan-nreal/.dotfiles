@@ -21,6 +21,7 @@ vim.opt.timeoutlen = 100
 vim.opt.ttimeoutlen = 50
 
 vim.opt.undodir = { vim.fn.expand("~/.config") .. "/nvim/.undo//"}
+vim.opt.undofile = true
 vim.opt.backupdir = { vim.fn.expand("~/.config") .. "/nvim/.backup//"}
 -- vim.opt.directory = { vim.fn.expand("~/.config") .. "/nvim/.swp//"}
 

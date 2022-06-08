@@ -25,7 +25,7 @@ require('plugins/project-nvim')
 require('plugins/telescope-nvim')
 require('plugins/whichkey-nvim')
 require('plugins/Comment')
-require('plugins/better-escape')
+-- require('plugins/better-escape')
 require('plugins/null-ls')
 require('plugins/pretty-fold')
 
