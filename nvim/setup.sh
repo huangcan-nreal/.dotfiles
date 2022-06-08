@@ -1,8 +1,12 @@
 #!/bin/bash
 if [[ -d ~/.config/nvim ]]
 then
-    echo "mv ~/.config/nvim ~/nvim.backup"
-    mv ~/.config/nvim ~/nvim.backup
+if [[ -d ~/.config/nvim.backup ]]
+then
+    rm  ~/.config/nvim.backup
+fi
+    echo "mv ~/.config/nvim ~/.config/nvim.backup"
+    mv ~/.config/nvim ~/.config/nvim.backup
 fi
 
 ln -sf ~/.dotfiles/nvim ~/.config/nvim
