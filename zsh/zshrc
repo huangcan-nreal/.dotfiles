@@ -124,6 +124,7 @@ antigen bundle web-search
 antigen bundle copypath
 antigen bundle copyfile
 antigen bundle copybuffer
+antigen theme romkatv/powerlevel10k
 
 antigen bundle zsh-syntax-highlighting
 antigen apply
