@@ -1,4 +1,9 @@
 #!/bin/bash
+if [[ ! -d ~/.config ]]
+then
+    mkdir ~/.config
+fi
+
 if [[ -d ~/.config/nvim ]]
 then
 if [[ -d ~/.config/nvim.backup ]]
@@ -18,4 +23,4 @@ then
 fi
 nvim +PackerSync
 echo "Please install language server"
-echo "sudo npm install -g bash-language-server pyright vscode-langservers-extracted typescript typescript-language-server"
+echo "sudo apt install nodejs npm && sudo npm install -g bash-language-server pyright vscode-langservers-extracted typescript typescript-language-server"
