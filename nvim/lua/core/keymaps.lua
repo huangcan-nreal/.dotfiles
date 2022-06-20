@@ -88,7 +88,8 @@ map("n", "<leader>ff", ":Telescope find_files theme=ivy<CR>")
 map("n", "<leader>bb", ":Telescope buffers theme=ivy<CR>")
 map("n", "<leader>ss", ":Telescope grep_string theme=ivy<CR>")
 map("n", "<leader>/", ":Telescope live_grep theme=ivy<CR>")
-map("n", "#/", ":Telescope live_grep theme=ivy<CR>")
+map("n", "<leader>ll", ":Telescope live_grep theme=ivy<CR>")
+map("n", "#/", [[<cmd> call luaeval("require('telescope.builtin').grep_string({search=_A})", expand('<cword>')) <CR>]] )
 map("n", "<leader>gd", ":Telescope lsp_references theme=ivy<CR>")
 
 -- Plugins Keys

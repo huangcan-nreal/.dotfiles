@@ -107,6 +107,11 @@ local comps = {
       provider = function()
         local os = vim.bo.fileformat:lower()
         local icon
+
+        if vim.loop.os_uname().sysname == 'Darwin' then
+          os = 'mac'
+        end
+
         if os == 'unix' then
           icon = '  '
         elseif os == 'mac' then
