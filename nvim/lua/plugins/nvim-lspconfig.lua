@@ -53,6 +53,7 @@ local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
+
   if client.supports_method("textDocument/formatting") then
       vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
       vim.api.nvim_create_autocmd("BufWritePre", {
@@ -60,7 +61,7 @@ local on_attach = function(client, bufnr)
           buffer = bufnr,
           callback = function()
               -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-              vim.lsp.buf.formatting_sync()
+            vim.lsp.buf.formatting_sync()
           end,
       })
 
