@@ -152,6 +152,8 @@ return packer.startup(function(use)
     "jose-elias-alvarez/null-ls.nvim"
   }
 
+  use {'ojroques/nvim-osc52'}
+
   if packer_bootstrap then
     require('packer').sync()
   end
