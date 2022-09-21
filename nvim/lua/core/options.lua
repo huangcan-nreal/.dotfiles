@@ -12,7 +12,6 @@ local opt = vim.opt   -- Set options (global/buffer/windows-scoped)
 -----------------------------------------------------------
 -- General
 -----------------------------------------------------------
-vim.wo.fillchars = 'horiz:'
 opt.guifont = 'DroidSansMono Nerd Font'
 opt.mouse = 'a'                       -- Enable mouse support
 opt.clipboard = 'unnamedplus'         -- Copy/paste to system clipboard
@@ -30,6 +29,7 @@ vim.opt.backupdir = { vim.fn.expand("~/.config") .. "/nvim/.backup//"}
 -----------------------------------------------------------
 -- Neovim UI
 -----------------------------------------------------------
+vim.wo.fillchars = 'horiz:'
 opt.number = true           -- Show line number
 opt.showmatch = true        -- Highlight matching parenthesis
 opt.foldmethod = 'indent'   -- Enable folding (default 'foldmarker')
@@ -41,6 +41,7 @@ opt.smartcase = true        -- Ignore lowercase for the whole pattern
 opt.linebreak = true        -- Wrap on word boundary
 opt.termguicolors = true    -- Enable 24-bit RGB colors
 opt.laststatus=3            -- Set global statusline
+opt.scrolloff=50            -- Set cursor keep center in the screen.
 
 -----------------------------------------------------------
 -- Tabs, indent
