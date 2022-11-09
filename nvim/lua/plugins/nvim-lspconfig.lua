@@ -29,7 +29,7 @@ vim.cmd([[
 -- Add additional capabilities supported by nvim-cmp
 -- See: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 capabilities.textDocument.completion.completionItem.documentationFormat = { 'markdown', 'plaintext' }
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -142,17 +142,63 @@ end
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches.
 -- Add your language server below:
-local servers = {'clangd', 'bashls', 'pyright', 'cmake' }
+-- local servers = {'clangd', 'bashls', 'pyright', 'cmake', 'bufls'}
 
 -- Call setup
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
+-- for _, lsp in ipairs(servers) do
+--   lspconfig[lsp].setup {
+--     on_attach = on_attach,
+--     root_dir = root_dir,
+--     capabilities = capabilities,
+--     flags = {
+--       -- default in neovim 0.7+
+--       debounce_text_changes = 150,
+--     }
+--   }
+-- end
+
+lspconfig['clangd'].setup {
+    on_attach = on_attach,
+    flags = {
+      -- default in neovim 0.7+
+      debounce_text_changes = 150,
+    },
+    root_dir = root_dir,
+    filetypes = { "c", "cpp", "objc", "objcpp", "cuda" }
+}
+
+lspconfig['bufls'].setup{
     on_attach = on_attach,
     root_dir = root_dir,
-    capabilities = capabilities,
+    flags = {
+      -- default in neovim 0.7+
+      debounce_text_changes = 150,
+    },
+    filetypes = { "proto" }
+}
+
+lspconfig['cmake'].setup{
+    on_attach = on_attach,
+    -- root_dir = root_dir,
+    flags = {
+      -- default in neovim 0.7+
+      debounce_text_changes = 150,
+    },
+    filetypes = { "cmake" }
+}
+
+lspconfig['bashls'].setup{
+    on_attach = on_attach,
     flags = {
       -- default in neovim 0.7+
       debounce_text_changes = 150,
     }
-  }
-end
+}
+
+lspconfig['pyright'].setup{
+    on_attach = on_attach,
+    flags = {
+      -- default in neovim 0.7+
+      debounce_text_changes = 150,
+    }
+}
