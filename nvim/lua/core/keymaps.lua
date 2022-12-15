@@ -12,8 +12,8 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- Change leader to a comma
+vim.api.nvim_set_keymap('', '<Space>', '<Nop>', { noremap = true, silent = true })
 vim.g.mapleader = ' '
-
 -----------------------------------------------------------
 -- Neovim shortcuts
 -----------------------------------------------------------
@@ -84,13 +84,13 @@ map('n', 'gb', ':BufferLinePick<CR>')
 
 
 -- Telescope
-map("n", "<leader>ff", ":Telescope find_files theme=ivy<CR>")
-map("n", "<leader>bb", ":Telescope buffers theme=ivy<CR>")
-map("n", "<leader>ss", ":Telescope grep_string theme=ivy<CR>")
-map("n", "<leader>/", ":Telescope live_grep theme=ivy<CR>")
+-- map("n", "<leader>ff", ":Telescope find_files theme=ivy<CR>")
+-- map("n", "<leader>bb", ":Telescope buffers theme=ivy<CR>")
+-- map("n", "<leader>ss", ":Telescope grep_string theme=ivy<CR>")
+-- map("n", "<leader>/", ":Telescope live_grep theme=ivy<CR>")
 -- map("n", "<leader>ll", ":Telescope live_grep theme=ivy<CR>")
-map("n", "#/", [[<cmd> call luaeval("require('telescope.builtin').grep_string({search=_A})", expand('<cword>')) <CR>]] )
-map("n", "<leader><leader>", ":Telescope commands theme=ivy<CR>")
+-- map("n", "#/", [[<cmd> call luaeval("require('telescope.builtin').grep_string({search=_A})", expand('<cword>')) <CR>]] )
+map("n", "<leader><leader>", ":Legendary<CR>")
 
 -- Plugins Keys
 local pluginKeys = {}

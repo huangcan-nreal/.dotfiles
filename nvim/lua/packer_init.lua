@@ -99,6 +99,8 @@ return packer.startup(function(use)
     end
   }
 
+  use 'f-person/git-blame.nvim'
+
   -- Dashboard (start screen)
   use {
     'goolord/alpha-nvim',
@@ -110,11 +112,20 @@ return packer.startup(function(use)
     requires = 'kyazdani42/nvim-web-devicons'
   }
 
+
+  use("nvim-telescope/telescope-ui-select.nvim")
+
+  use("nvim-telescope/telescope-live-grep-args.nvim")
+
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = {
+      {'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-live-grep-args.nvim'},
+    },
+    config = function()
+      require("telescope").load_extension("live_grep_args")
+    end
   }
-  use("nvim-telescope/telescope-ui-select.nvim")
   -- Lua
   use {
     "ahmedkhalf/project.nvim"
@@ -153,6 +164,23 @@ return packer.startup(function(use)
   }
 
   use {'ojroques/nvim-osc52'}
+
+  use {
+    'pwntester/octo.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+      'kyazdani42/nvim-web-devicons',
+    },
+    config = function ()
+      require"octo".setup()
+    end
+  }
+
+  use({ 'mrjones2014/legendary.nvim' })
+
+
+  use {'windwp/nvim-spectre'}
 
   if packer_bootstrap then
     require('packer').sync()

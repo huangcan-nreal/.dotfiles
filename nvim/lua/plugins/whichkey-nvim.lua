@@ -77,3 +77,31 @@ wk.setup {
     v = { "j", "k" },
   },
 }
+
+
+wk.register({
+  f = {
+    name = "file", -- optional group name
+    f = { "<cmd>Telescope find_files theme=ivy<cr>", "Find File" }, -- create a binding with label
+    b = { "<cmd>Telescope buffers theme=ivy<cr>", "Find Buffers" }, -- create a binding with label
+    ['/'] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Live Grep" }, -- create a binding with label
+  },
+}, { prefix = "<leader>" })
+
+
+wk.register({
+  ["#/"] = { [[<cmd> call luaeval("require('telescope.builtin').grep_string({search=_A})", expand('<cword>')) <CR>]], "Search current word in root project."},
+  ["<leader>bb"] = { "<cmd>Telescope buffers theme=ivy<cr>", "Find Buffers"},
+  ["<leader>gs"] = { "<cmd>Telescope buffers theme=ivy<cr>", "Find Buffers"},
+    ['<leader>/'] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Live Grep" }, -- create a binding with label
+})
+
+
+-- nvim-spectre
+-- https://github.com/nvim-pack/nvim-spectre
+wk.register({
+  ["<leader>S"] = { "<cmd>lua require('spectre').open()<cr>", "Search and replace"},
+  ["<leader>sw"] = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "search current word"},
+  ["<leader>s"] = { "<cmd>lua require('spectre').open_visual()<cr>", "search current"},
+  ["<leader>sp"] = { "<cmd>viw:lua require('spectre').open_file_search()<cr>", "search current"},
+})

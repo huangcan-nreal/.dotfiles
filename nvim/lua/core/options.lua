@@ -32,7 +32,6 @@ vim.opt.backupdir = { vim.fn.expand("~/.config") .. "/nvim/.backup//"}
 vim.wo.fillchars = 'horiz:'
 opt.number = true           -- Show line number
 opt.showmatch = true        -- Highlight matching parenthesis
-opt.foldmethod = 'indent'   -- Enable folding (default 'foldmarker')
 opt.colorcolumn = '80'      -- Line lenght marker at 80 columns
 opt.splitright = true       -- Vertical split to the right
 opt.splitbelow = true       -- Horizontal split to the bottom
@@ -47,8 +46,8 @@ opt.scrolloff=50            -- Set cursor keep center in the screen.
 -- Tabs, indent
 -----------------------------------------------------------
 opt.expandtab = true        -- Use spaces instead of tabs
-opt.shiftwidth = 4          -- Shift 4 spaces when tab
-opt.tabstop = 4             -- 1 tab == 4 spaces
+opt.shiftwidth = 2          -- Shift 4 spaces when tab
+opt.tabstop = 2             -- 1 tab == 2 spaces
 opt.smartindent = true      -- Autoindent new lines
 
 -----------------------------------------------------------

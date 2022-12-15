@@ -89,8 +89,11 @@ local on_attach = function(client, bufnr)
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'gd', "<cmd>lua require('telescope.builtin').lsp_definitions({layout_strategy='vertical',layout_config={width=0.5}})<CR>", opts)
+  buf_set_keymap('n', 'gr', "<cmd>lua require('telescope.builtin').lsp_references({layout_strategy='vertical',layout_config={width=0.5}})<CR>", opts)
+  -- buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition({layout_strategy='vertical',layout_config={width=0.5}})<CR>', opts)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+
   -- buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   -- buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
   buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
@@ -99,7 +102,6 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_set_keymap('n', 'gr', "<cmd>lua require('telescope.builtin').lsp_references({layout_strategy='vertical',layout_config={width=0.5}})<CR>", opts)
 
   buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
@@ -163,6 +165,7 @@ lspconfig['clangd'].setup {
       -- default in neovim 0.7+
       debounce_text_changes = 150,
     },
+    capabilities = capabilities,
     root_dir = root_dir,
     filetypes = { "c", "cpp", "objc", "objcpp", "cuda" }
 }
@@ -174,6 +177,7 @@ lspconfig['bufls'].setup{
       -- default in neovim 0.7+
       debounce_text_changes = 150,
     },
+    capabilities = capabilities,
     filetypes = { "proto" }
 }
 
@@ -184,11 +188,13 @@ lspconfig['cmake'].setup{
       -- default in neovim 0.7+
       debounce_text_changes = 150,
     },
+    capabilities = capabilities,
     filetypes = { "cmake" }
 }
 
 lspconfig['bashls'].setup{
     on_attach = on_attach,
+    capabilities = capabilities,
     flags = {
       -- default in neovim 0.7+
       debounce_text_changes = 150,
@@ -197,6 +203,7 @@ lspconfig['bashls'].setup{
 
 lspconfig['pyright'].setup{
     on_attach = on_attach,
+    capabilities = capabilities,
     flags = {
       -- default in neovim 0.7+
       debounce_text_changes = 150,
