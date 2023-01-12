@@ -26,7 +26,11 @@ autocmd('BufWritePre', {
 -- Don't auto commenting new lines
 autocmd('BufEnter', {
   pattern = '*',
-  command = 'set fo-=c fo-=r fo-=o'
+  -- command = 'set fo-=c fo-=r fo-=o'
+  command = 'set nofoldenable'
+-- vim.api.nvim_command("set foldmethod=expr")
+-- vim.api.nvim_command("set foldexpr=nvim_treesitter#foldexpr()")
+
 })
 
 -- Settings for fyletypes:

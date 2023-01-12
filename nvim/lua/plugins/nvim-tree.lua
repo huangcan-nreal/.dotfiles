@@ -82,7 +82,7 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
   respect_buf_cwd = false,
   view = {
     adaptive_size = false,
-    centralize_selection = false,
+    centralize_selection = true,
     width = 50,
     hide_root_folder = false,
     side = "left",
@@ -94,6 +94,11 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
       custom_only = false,
       list = {
         -- user mappings go here
+        { key = {"|", "<C-v>"},                          action = "vsplit" },
+        { key = {"-", "<C-h>"},                          action = "split" },
+        { key = {"t", "<C-t>"},                          action = "tabnew" },
+        { key = "h",                           action = "close_node" },
+        { key = "l",                          action = "preview" },
       },
     },
   },

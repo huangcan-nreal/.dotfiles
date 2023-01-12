@@ -59,7 +59,7 @@ return packer.startup(function(use)
   }
 
   -- Icons
-  use 'kyazdani42/nvim-web-devicons'
+  use 'nvim-tree/nvim-web-devicons'
 
   -- Tag viewer
   use 'preservim/tagbar'
@@ -87,7 +87,7 @@ return packer.startup(function(use)
   -- Statusline
   use {
     'famiu/feline.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
+    requires = { 'nvim-tree/nvim-web-devicons' },
   }
 
   -- git labels
@@ -104,13 +104,10 @@ return packer.startup(function(use)
   -- Dashboard (start screen)
   use {
     'goolord/alpha-nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
+    requires = { 'nvim-tree/nvim-web-devicons' },
   }
 
-  use {
-    'akinsho/bufferline.nvim',
-    requires = 'kyazdani42/nvim-web-devicons'
-  }
+  use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
 
 
   use("nvim-telescope/telescope-ui-select.nvim")
@@ -147,10 +144,10 @@ return packer.startup(function(use)
     end
   }
 
-  use {
-    'anuvyklack/pretty-fold.nvim',
-    requires = 'anuvyklack/nvim-keymap-amend', -- only for preview
-  }
+  -- use {
+  --   'anuvyklack/pretty-fold.nvim',
+  --   requires = 'anuvyklack/nvim-keymap-amend', -- only for preview
+  -- }
 
   -- use {
   --   "max397574/better-escape.nvim",
@@ -170,7 +167,7 @@ return packer.startup(function(use)
     requires = {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope.nvim',
-      'kyazdani42/nvim-web-devicons',
+      'nvim-tree/nvim-web-devicons',
     },
     config = function ()
       require"octo".setup()
@@ -181,6 +178,17 @@ return packer.startup(function(use)
 
 
   use {'windwp/nvim-spectre'}
+
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+
+  use {
+    'TimUntersberger/neogit',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'sindrets/diffview.nvim'
+    },
+  }
+
 
   if packer_bootstrap then
     require('packer').sync()

@@ -17,6 +17,7 @@ require("bufferline").setup {
         right_trunc_marker = '',
         separator_style = "slant",
         enforce_regular_tabs = true,
-        always_show_bufferline = true
+        always_show_bufferline = true,
+        mode = "buffers"
     }
 }

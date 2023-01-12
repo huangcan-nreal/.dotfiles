@@ -109,8 +109,8 @@ pluginKeys.telescopeList = {
   }
 }
 
-map('v', "=", ":lua vim.lsp.buf.range_formatting()<CR>")
-map('n', "==", ":lua vim.lsp.buf.formatting()<CR>")
+map('v', "=", ":lua vim.lsp.buf.range_format()<CR>")
+map('n', "==", ":lua vim.lsp.buf.format()<CR>")
 
 return pluginKeys
 

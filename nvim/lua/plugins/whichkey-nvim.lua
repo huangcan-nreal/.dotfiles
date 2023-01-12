@@ -84,7 +84,7 @@ wk.register({
     name = "file", -- optional group name
     f = { "<cmd>Telescope find_files theme=ivy<cr>", "Find File" }, -- create a binding with label
     b = { "<cmd>Telescope buffers theme=ivy<cr>", "Find Buffers" }, -- create a binding with label
-    ['/'] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Live Grep" }, -- create a binding with label
+    ['/'] = { "<cmd>Telescope live_grep_args theme=ivy<cr>", "Live Grep Args" }, -- create a binding with label
   },
 }, { prefix = "<leader>" })
 
@@ -93,7 +93,7 @@ wk.register({
   ["#/"] = { [[<cmd> call luaeval("require('telescope.builtin').grep_string({search=_A})", expand('<cword>')) <CR>]], "Search current word in root project."},
   ["<leader>bb"] = { "<cmd>Telescope buffers theme=ivy<cr>", "Find Buffers"},
   ["<leader>gs"] = { "<cmd>Telescope buffers theme=ivy<cr>", "Find Buffers"},
-    ['<leader>/'] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Live Grep" }, -- create a binding with label
+    ['<leader>/'] = { "<cmd>Telescope live_grep_args theme=ivy<cr>", "Live Grep Args" }, -- create a binding with label
 })
 
 
@@ -105,3 +105,26 @@ wk.register({
   ["<leader>s"] = { "<cmd>lua require('spectre').open_visual()<cr>", "search current"},
   ["<leader>sp"] = { "<cmd>viw:lua require('spectre').open_file_search()<cr>", "search current"},
 })
+
+-- diffview
+wk.register({
+  d = {
+    name = "diffview", -- optional group name
+    o = { "<cmd>DiffviewOpen<cr>", "DiffviewOpen" },
+    f = { "<cmd>DiffviewFocusFiles<cr>", "DiffviewFocusFiles" },
+    c = { "<cmd>DiffviewClose<cr>", "DiffviewClose" },
+    r = { "<cmd>DiffviewRefresh<cr>", "DiffviewRefresh" },
+  },
+}, { prefix = "<leader>" })
+
+
+-- ta
+wk.register({
+  t = {
+    name = "tab",
+    h = { "<cmd>tabnext<cr>", "tabnext "},
+    l = { "<cmd>tabprevious<cr>", "tabprevious"}
+  }
+}, { prefix = "<leader>" })
+
+
