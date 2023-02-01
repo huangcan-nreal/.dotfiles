@@ -297,6 +297,6 @@ bind C-f send-prefix
 # split current window horizontally
 bind - split-window -v
 # split current window vertically
-bind \\ split-window -h
+bind \ split-window -h
 set -s escape-time 10                     # faster command sequences
 set -sg repeat-time 10                   # increase repeat timeout

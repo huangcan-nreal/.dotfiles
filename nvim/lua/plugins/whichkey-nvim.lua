@@ -93,7 +93,7 @@ wk.register({
   ["#/"] = { [[<cmd> call luaeval("require('telescope.builtin').grep_string({search=_A})", expand('<cword>')) <CR>]], "Search current word in root project."},
   ["<leader>bb"] = { "<cmd>Telescope buffers theme=ivy<cr>", "Find Buffers"},
   ["<leader>gs"] = { "<cmd>Telescope buffers theme=ivy<cr>", "Find Buffers"},
-    ['<leader>/'] = { "<cmd>Telescope live_grep_args theme=ivy<cr>", "Live Grep Args" }, -- create a binding with label
+  ['<leader>/'] = { "<cmd>Telescope live_grep_args theme=ivy<cr>", "Live Grep Args" }, -- create a binding with label
 })
 
 
