@@ -56,10 +56,22 @@ C-k will toggle a popup with file infos about the file under the cursor
 -- Global options
 local g = vim.g
 
-vim.api.nvim_create_autocmd('BufEnter', {
-    command = "if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif",
-    nested = true,
+local function open_nvim_tree()
+  -- open the tree
+  -- require("nvim-tree.api").tree.open()
+  require("nvim-tree.api").tree.toggle({ focus = false })
+end
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  group = vim.api.nvim_create_augroup("NvimTreeClose", {clear = true}),
+  pattern = "NvimTree_*",
+  callback = function()
+    local layout = vim.api.nvim_call_function("winlayout", {})
+    if layout[1] == "leaf" and vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(layout[2]), "filetype") == "NvimTree" and layout[3] == nil then vim.cmd("confirm quit") end
+  end
 })
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
 local status_ok, nvim_tree = pcall(require, 'nvim-tree')
 if not status_ok then
@@ -73,8 +85,6 @@ require'nvim-tree'.setup { -- BEGIN_DEFAULT_OPTS
   hijack_netrw = true,
   hijack_unnamed_buffer_when_opening = false,
   ignore_buffer_on_setup = false,
-  open_on_setup = true,
-  open_on_setup_file = false,
   open_on_tab = false,
   sort_by = "name",
   update_cwd = false,
