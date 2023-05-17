@@ -8,7 +8,9 @@ Website: https://github.com/brainfucksec/neovim-lua
 --]]
 
 -- Import Lua modules
-require('packer_init')
+
+require('lazy_init')
+-- require('packer_init')
 require('core/options')
 require('core/autocmds')
 require('core/keymaps')
@@ -33,3 +35,4 @@ require('plugins/octo')
 require('plugins/spectre')
 require('plugins/diffview')
 require('plugins/neogit')
+

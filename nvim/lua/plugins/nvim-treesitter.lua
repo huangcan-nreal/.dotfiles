@@ -15,8 +15,8 @@ end
 nvim_treesitter.setup {
   -- A list of parser names, or "all"
   ensure_installed = {
-    'bash', 'c', 'cpp', 'cuda', 'css', 'html', 'javascript', 'json', 'lua', 'python',
-    'typescript', 'vim'
+    'c', 'cpp', 'cuda', 'css', 'html', 'javascript', 'json', 'lua', 'python',
+    'typescript', 'vim', 'bash'
   },
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -34,4 +34,4 @@ nvim_treesitter.setup {
 }
 vim.api.nvim_command("set foldmethod=expr")
 vim.api.nvim_command("set foldexpr=nvim_treesitter#foldexpr()")
-vim.api.nvim_command("set nofoldenable")
+-- vim.api.nvim_command("set nofoldenable")
