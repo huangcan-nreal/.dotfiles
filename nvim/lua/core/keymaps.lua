@@ -44,7 +44,7 @@ map('n', '<C-l>', '<C-w>l')
 map('n', '<leader>r', ':so ~/.config/nvim/init.lua<CR>')
 
 -- Fast saving with <leader> and s
-map('n', '<leader>fs', ':w<CR>')
+map('n', '<leader>fs', ':update<CR>')
 map('n', '<leader>w', ':w<CR>')
 
 -- Close all windows and exit from Neovim with <leader> and q
