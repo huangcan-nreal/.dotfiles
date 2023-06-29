@@ -1,0 +1,6 @@
+[user]
+	name = huangcan-nreal
+	email = canhuang@xreal.com
+
+[include]
+  path = ~/.gitalias.txt
